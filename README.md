@@ -44,26 +44,26 @@ Hand Tracking Module owned by :- Abhishek Sharma
                      # 4. only index finger : it is in moving mode
                      if fingers[1]==1 and fingers[2]==0:
 
-                     # 5. Convert coordinates
+                         # 5. Convert coordinates
 
-                     x3 = np.interp(x1, (frameR, wCam-frameR), (0, wScr))
-                     y3 = np.interp(y1, (frameR, Hcam-frameR), (0, hScr))
-                     # 6. Smoothen Values
-                     clocX = plocX + (x3 - plocX) / smoothening
-                     clocY = PlocY + (y3 - PlocY) / smoothening
-                     # 7. Move Mouse
-                     autopy.mouse.move(wScr-clocX, clocY)
-                     cv2.circle(img, (x1, y1), 15, (255, 0, 0), cv2.FILLED)
-                     plocX, PlocY = clocX, clocY
-                 # 8. Both middle and index fingers are up : Clicking mode
-                 if fingers[1] == 1 and fingers[2] == 1:
-                     length, img, lineInfo = detector.findDistance(8, 12, img)
-                     print(length)
-                     # 9. Find Distance between fingers
-                     if length < 45:
-                         cv2.circle(img, (lineInfo[4], lineInfo[5]), 15, (0, 255, 0), cv2.FILLED)
-                         # 10. click mouse if distance short
-                         autopy.mouse.click()
+                         x3 = np.interp(x1, (frameR, wCam-frameR), (0, wScr))
+                         y3 = np.interp(y1, (frameR, Hcam-frameR), (0, hScr))
+                         # 6. Smoothen Values
+                         clocX = plocX + (x3 - plocX) / smoothening
+                         clocY = PlocY + (y3 - PlocY) / smoothening
+                         # 7. Move Mouse
+                         autopy.mouse.move(wScr-clocX, clocY)
+                         cv2.circle(img, (x1, y1), 15, (255, 0, 0), cv2.FILLED)
+                         plocX, PlocY = clocX, clocY
+                    # 8. Both middle and index fingers are up : Clicking mode
+                    if fingers[1] == 1 and fingers[2] == 1:
+                        length, img, lineInfo = detector.findDistance(8, 12, img)
+                        print(length)
+                        # 9. Find Distance between fingers
+                        if length < 45:
+                            cv2.circle(img, (lineInfo[4], lineInfo[5]), 15, (0, 255, 0), cv2.FILLED)
+                            # 10. click mouse if distance short
+                            autopy.mouse.click()
 
 
 
