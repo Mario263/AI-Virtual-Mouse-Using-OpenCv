@@ -1,9 +1,12 @@
 # AI Virtual Mouse Using OpenCv 
  This is an AI virtual mouse built using libraries and functions like OpenCV Numpy mediapipe etc. I have created a hand tracking module in which i have already described how it will track our hand , by using my module i have defined the location of Index finger and middle finger.
 
-"""project owned by :- Abhishek Sharma \n
+"""project owned by :- Abhishek Sharma
+
 Hand Tracking Module owned by :- Abhishek Sharma
 """
+
+# AI Virtual mouse main module
                
                 import cv2
                 import numpy as np
